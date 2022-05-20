@@ -37,7 +37,7 @@ def isPresent(rollno):
             return True in results
 
 
-print(isPresent("isav"))
+# print(isPresent("isav"))
         
 
 
