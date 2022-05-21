@@ -21,6 +21,7 @@ def adduser(rollno):
         if not ret:
             # print("Unable to open frame")
             # sys.exit()
+            cv.destroyAllWindows()
             break
         path_of_file = f"./KNOWN_FACES/{rollno}/{x}.jpg"
         cv.imshow("Person", frame)
