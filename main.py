@@ -1,16 +1,19 @@
+from matplotlib import pyplot as plt
 from _adduser import adduser
 from detection import isPresent
 import sys
 import csv
 from datetime import date
 import pandas as pd
+from dataclass import UserData, plt_students_present
 # import numpy as np
 
 initial = """
 Choose option:
     1. Mark attendance
     2. Add student
-    3. Exit
+    3. Show attendance of class
+    4. Exit
 """
 
 def addinguser():
@@ -66,13 +69,15 @@ def markattendance():
         # df.loc(df['roll_no'] == rollno, today) = 1
         print(f'Attendance marked for rollno {rollno}')
         return
+    else:
+        print("The face doesn't match. Please try again")
 
 def main():
     print(initial)
     while True:
         try:
             x = int(input(">> "))
-            if x in range(1,4):
+            if x in range(1,5):
                 break
             else:
                 print("Please Enter option 1 or 2")
@@ -84,6 +89,9 @@ def main():
         addinguser()
     elif x == 1:
         markattendance()
+    elif x == 3:
+        students_instance = UserData()
+        plt_students_present(students_instance)
     else:
         return 'exit'
 
